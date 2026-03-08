@@ -1,8 +1,8 @@
 import { FusesPlugin } from "@electron-forge/plugin-fuses";
 import { FuseV1Options, FuseVersion } from "@electron/fuses";
-import {config} from 'dotenv'
+import { config } from "dotenv";
 
-config()
+config();
 
 export const packagerConfig = {
   asar: true,
@@ -11,7 +11,11 @@ export const rebuildConfig = {};
 export const makers = [
   {
     name: "@electron-forge/maker-squirrel",
-    config: {},
+    config: {
+      name: "convertexcel",
+      setupExe: "convertexcel.exe",
+      setupIcon: "./assets/icon.png",
+    },
   },
   {
     name: "@electron-forge/maker-zip",
