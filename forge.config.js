@@ -6,6 +6,7 @@ config();
 
 export const packagerConfig = {
   asar: true,
+  icon: path.join(__dirname, './assets/logo.ico')
 };
 export const rebuildConfig = {};
 export const makers = [
@@ -14,7 +15,7 @@ export const makers = [
     config: {
       name: "convertexcel",
       setupExe: "convertexcel.exe",
-      setupIcon: "./assets/logo.ico",
+      setupIcon: path.join(__dirname, './assets/logo.ico'),
     },
   },
   {
