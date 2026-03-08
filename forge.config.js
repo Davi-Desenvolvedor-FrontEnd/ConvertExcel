@@ -1,7 +1,7 @@
 import { FusesPlugin } from "@electron-forge/plugin-fuses";
 import { FuseV1Options, FuseVersion } from "@electron/fuses";
 import { config } from "dotenv";
-
+import {path} from 'path'
 config();
 
 export const packagerConfig = {
