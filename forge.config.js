@@ -1,12 +1,17 @@
 import { FusesPlugin } from "@electron-forge/plugin-fuses";
 import { FuseV1Options, FuseVersion } from "@electron/fuses";
 import { config } from "dotenv";
-import {path} from 'path'
+import path from "path";
+import { fileURLToPath } from "url";
+import { dirname } from "path";
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
 config();
 
 export const packagerConfig = {
   asar: true,
-  icon: path.join(__dirname, './assets/logo.ico')
+  icon: path.join(__dirname, "./assets/logo.ico"),
 };
 export const rebuildConfig = {};
 export const makers = [
@@ -15,7 +20,7 @@ export const makers = [
     config: {
       name: "convertexcel",
       setupExe: "convertexcel.exe",
-      setupIcon: path.join(__dirname, './assets/logo.ico'),
+      setupIcon: path.join(__dirname, "./assets/logo.ico"),
     },
   },
   {
