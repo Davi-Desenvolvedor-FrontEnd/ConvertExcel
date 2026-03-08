@@ -1,5 +1,8 @@
-import { FusesPlugin } from '@electron-forge/plugin-fuses';
-import { FuseV1Options, FuseVersion } from '@electron/fuses';
+import { FusesPlugin } from "@electron-forge/plugin-fuses";
+import { FuseV1Options, FuseVersion } from "@electron/fuses";
+import {config} from 'dotenv'
+
+config()
 
 export const packagerConfig = {
   asar: true,
@@ -7,25 +10,25 @@ export const packagerConfig = {
 export const rebuildConfig = {};
 export const makers = [
   {
-    name: '@electron-forge/maker-squirrel',
+    name: "@electron-forge/maker-squirrel",
     config: {},
   },
   {
-    name: '@electron-forge/maker-zip',
-    platforms: ['darwin'],
+    name: "@electron-forge/maker-zip",
+    platforms: ["darwin"],
   },
   {
-    name: '@electron-forge/maker-deb',
+    name: "@electron-forge/maker-deb",
     config: {},
   },
   {
-    name: '@electron-forge/maker-rpm',
+    name: "@electron-forge/maker-rpm",
     config: {},
   },
 ];
 export const plugins = [
   {
-    name: '@electron-forge/plugin-auto-unpack-natives',
+    name: "@electron-forge/plugin-auto-unpack-natives",
     config: {},
   },
   // Fuses are used to enable/disable various Electron functionality
@@ -39,4 +42,19 @@ export const plugins = [
     [FuseV1Options.EnableEmbeddedAsarIntegrityValidation]: true,
     [FuseV1Options.OnlyLoadAppFromAsar]: true,
   }),
+];
+
+export const publishers = [
+  {
+    name: "@electron-forge/publisher-github",
+    config: {
+      repository: {
+        owner: "Davi-Desenvolvedor-FrontEnd",
+        name: "ConvertExcel",
+      },
+      authToken: process.env.GITHUB_TOKEN,
+      prerelease: false,
+      draft: true,
+    },
+  },
 ];
