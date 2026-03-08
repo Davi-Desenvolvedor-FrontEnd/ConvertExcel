@@ -14,7 +14,7 @@ export const makers = [
     config: {
       name: "convertexcel",
       setupExe: "convertexcel.exe",
-      setupIcon: "./assets/logo.png",
+      setupIcon: "./assets/logo.ico",
     },
   },
   {
